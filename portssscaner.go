@@ -11,7 +11,8 @@ import (
 )
 
 func banner_start() {
-	fmt.Println(banner.Inline("portssscaner "))
+	fmt.Println(banner.Inline("portssscaner"))
+	fmt.Println("\t\t\t\t\tAuthor: quietmoth1")
 }
 
 func check_args() (string, int, int) {
