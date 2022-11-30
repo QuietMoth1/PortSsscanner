@@ -39,7 +39,7 @@ func main() {
 		activeThreads++
 	}
 
-	// Ждем пока все ядра завершатся
+	// wait to thread are stop
 	for activeThreads > 0 {
 		<-doneChannel
 		activeThreads--
