@@ -1,3 +1,20 @@
 # PortSsscaner (golang)
-  
-,,_\n       zd$$??=\n     z$$P? F:`c,                _\n    d$$, `c\'cc$$i           ,cd$?R\n   $$$$ cud$,?$$$i       ,=P\"2?z \"\n    $\" \" ?$$$,?$$$.    ,-\'\'`>, bzP\n     \'cLdb,?$$,?$$$   ,h\' \"I$\'J$P\n  ... `?$$$,\"$$,`$$h  $$PxrF\'d$\"\n d$PP\"\"?-,\"?$$,?$h`$$,,$$\'$F44\"\n ?,,_`=4c,?=,\"?hu?$`?L4$\'? \'\n   `\"\"?==\"\"=-\"\" `\"\"-`\'_,,,,\n           .ccu?m?e?JC,-,\"=?\n                     \"\"\"==\'?\"
+```
+         ,,_
+       zd$$??=
+     z$$P? F:`c,                _
+    d$$, `c'cc$$i           ,cd$?R
+   $$$$ cud$,?$$$i       ,=P"2?z "
+    $" " ?$$$,?$$$.    ,-''`>, bzP
+     'cLdb,?$$,?$$$   ,h' "I$'J$P
+  ... `?$$$,"$$,`$$h  $$PxrF'd$"
+d$PP""?-,"?$$,?$h`$$,,$$'$F44"
+?,,_`=4c,?=,"?hu?$`?L4$'? '
+   `""?==""=-"" `""-`'_,,,,
+           .ccu?m?e?JC,-,"=?
+                     """=='?"**
+```            
+
+## How to build 
+### For build use **go build**
+### \t example: _go build -ldflags "-w -s" -o portssscaner portssscaner.go_
