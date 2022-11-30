@@ -6,6 +6,5 @@
 ██║░░░░░╚█████╔╝██║░░██║░░░██║░░░██████╔╝██████╔╝██████╔╝╚█████╔╝██║░░██║██║░╚███║███████╗██║░░██║
 ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝░░░╚═╝░░░╚═════╝░╚═════╝░╚═════╝░░╚════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚══════╝╚═╝░░╚═╝
 ```            
-
 ## How to build 
-* For build use **go build**, example:  _go build -ldflags "-w -s" -o portssscaner portssscaner.go_
+* For build use **go build**, example:  **_go build -ldflags "-w -s" -o portssscaner portssscaner.go_**
