@@ -7,4 +7,4 @@
 ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝░░░╚═╝░░░╚═════╝░╚═════╝░╚═════╝░░╚════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚══╝╚══════╝╚═╝░░╚═╝
 ```            
 ## How to build 
-* For build use **go build**, example:  **_go build -ldflags "-w -s" -o portssscanner portssscanner.go_**
+* Use command: **make**
