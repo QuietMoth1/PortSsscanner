@@ -19,7 +19,7 @@ func banner_start() {
 
 func main() {
 	banner_start()
-	var minPort = 1          // minport value 
+	var minPort = 1  // minport value 
 
 	// ARGS
 	ipToScan := flag.String("ip", "", "IP_to_scan")
@@ -29,7 +29,7 @@ func main() {
 
 	// Check args
 	if len(*ipToScan) == 0 || *maxPort < 1 || *maxPort > 65535 {
-		fmt.Println("Usage: portssscanner -ip 8.8.8.8")
+		fmt.Println("Usage: portssscanner -ip 8.8.8.8 -ports 65535")
 		flag.PrintDefaults()
 		os.Exit(0)
 	}
