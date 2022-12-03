@@ -1,13 +1,15 @@
 package main
 
 import (
+	"os"
 	"fmt"
 	"log"
 	"net"
-	"strconv"
 	"time"
-    "github.com/fatih/color"
+	"flag"
+	"strconv"
 	"moul.io/banner"
+    "github.com/fatih/color"
 )
 
 func banner_start() {
@@ -15,36 +17,41 @@ func banner_start() {
 	fmt.Println("\t\t\t\t\tAuthor: quietmoth1")
 }
 
-func check_args() (string, int, int) {
-	fmt.Print("\nHello, give me your ip to scan ports: ")
-	var ipToScan string
-	fmt.Scanf("%s", &ipToScan)
-
-	var minPort = 1          // minport value 
-	var maxPort = 20000		// maxport value 
-	return ipToScan, minPort, maxPort
-}
-
 func main() {
 	banner_start()
-	ipToScan, minPort, maxPort := check_args()
+	var minPort = 1          // minport value 
 
-	
-	fmt.Println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+	// ARGS
+	ipToScan := flag.String("ip", "", "IP_to_scan")
+	maxPort := flag.CommandLine.Int("ports", 0, "number of ports to scan")
+
+	flag.Parse()
+
+	// Check args
+	if len(*ipToScan) == 0 || *maxPort < 1 || *maxPort > 65535 {
+		fmt.Println("Usage: portssscanner -ip 8.8.8.8")
+		flag.PrintDefaults()
+		os.Exit(0)
+	}
+	 
+
+	fmt.Println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+	// Threads
 	activeThreads := 0
 	doneChannel := make(chan bool)
 
-	for port := minPort; port <=  maxPort; port++ {
-		go testTCPConnection(ipToScan, port, doneChannel) // <-- go threads
+	for port := minPort; port <= *maxPort; port++ {
+		go TCPConnectionScan(*ipToScan, port, doneChannel) // <-- go threads
 		activeThreads++
 	}
 
-	// wait to thread are stop
+	// Wait to threads are stop
 	for activeThreads > 0 {
 		<-doneChannel
 		activeThreads--
 	}
-	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 }
 
 func TCPConnectionScan(ip string, port int, doneChannel chan bool) {
