@@ -47,7 +47,7 @@ func main() {
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 }
 
-func testTCPConnection(ip string, port int, doneChannel chan bool) {
+func TCPConnectionScan(ip string, port int, doneChannel chan bool) {
 	_, err := net.DialTimeout("tcp", ip+":"+strconv.Itoa(port), time.Second*10)
 
 	ip = color.RedString(ip)
